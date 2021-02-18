@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script type="text/javascript" src="js/socket.io.js" charset="UTF-8"></script>
+	</head>
+	<body>
+		<script>
+			// console.log(io)
+		let con=io.connect("http://localhost");
+		con.on('connect',data=>{
+			console.log('连接事件')
+		})
+		con.on('news',data=>{
+			console.log(data)
+		})
+		con.emit('my other event',{
+			usrename:'老陈',
+			chatcontent:'吃饭了吗'
+		})
+		</script>
+	</body>
+</html>
